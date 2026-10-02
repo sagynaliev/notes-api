@@ -31,3 +31,12 @@ def test_create_and_get_note():
 
     assert response.status_code == 200
     assert len(response.get_json()) >= 1
+
+
+def test_get_notes_empty():
+    client = app.test_client()
+
+    response = client.get("/notes")
+
+    assert response.status_code == 200
+    assert isinstance(response.get_json(), list)
