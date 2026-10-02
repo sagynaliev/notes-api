@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PORT="${PORT:-8080}"
+export PORT="${PORT:-8080}"
 
 python3 app/app.py
