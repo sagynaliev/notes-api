@@ -7,6 +7,7 @@ def test_home():
 
     assert response.status_code == 200
     assert response.get_json()["status"] == "running"
+    assert response.get_json()["service"] == "notes-api"
 
 
 def test_healthz():
