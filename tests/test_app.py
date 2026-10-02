@@ -40,3 +40,15 @@ def test_get_notes_empty():
 
     assert response.status_code == 200
     assert isinstance(response.get_json(), list)
+
+
+def test_create_note_without_text():
+    client = app.test_client()
+
+    response = client.post(
+        "/notes",
+        json={}
+    )
+
+    assert response.status_code == 400
+    assert response.get_json()["error"] == "text is required"

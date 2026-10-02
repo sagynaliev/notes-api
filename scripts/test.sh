@@ -3,4 +3,4 @@ set -euo pipefail
 
 PYTHONPATH=. pytest -q
 
-echo "TESTS: 4/4"
+echo "TESTS: 5/5"
