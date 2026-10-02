@@ -25,3 +25,10 @@ Run the tests with:
     ./scripts/test.sh
 
 The tests should finish with TESTS: 3/3.
+
+## Endpoints
+
+- `GET /` - service information
+- `GET /healthz` - health check
+- `GET /notes` - list all notes
+- `POST /notes` - create a new note
