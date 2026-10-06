@@ -52,4 +52,4 @@ def test_create_note_without_text():
     )
 
     assert response.status_code == 400
-    assert response.get_json()["error"] == "text is required"
+    assert response.get_json()["error"] == "wrong error"
