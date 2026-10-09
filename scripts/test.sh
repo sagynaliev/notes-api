@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PYTHONPATH=. pytest -q
+cd "$(dirname "$0")"
 
-echo "TESTS: 5/5"
+python3 -m venv ../.venv
+../.venv/bin/pip install -q -r ../requirements.txt
+
+set +e
+PYTHONPATH=.. ../.venv/bin/python -m pytest -q ../tests
+status=$?
+set -e
+
+exit "$status"
