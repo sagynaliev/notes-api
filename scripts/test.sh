@@ -6,4 +6,4 @@ cd "$(dirname "$0")/.."
 python3 -m venv .venv
 .venv/bin/pip install -q -r requirements.txt
 
-.venv/bin/python -m pytest -q tests --no-header --tb=short
+.venv/bin/python -m pytest tests --no-header -q --tb=short
