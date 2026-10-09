@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.."
 
-python3 -m venv ../.venv
-../.venv/bin/pip install -q -r ../requirements.txt
+python3 -m venv .venv
+.venv/bin/pip install -q -r requirements.txt
 
-set +e
-PYTHONPATH=.. ../.venv/bin/python -m pytest -q ../tests
-status=$?
-set -e
-
-exit "$status"
+.venv/bin/python -m pytest -q tests --no-header --tb=short
