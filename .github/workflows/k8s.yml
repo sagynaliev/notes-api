@@ -1,5 +1,5 @@
 # Optional, and not marked: test your k8s/ in a real cluster on every pull request.
-# Copy to .github/workflows/k8s.yml in YOUR project and fill the four notes blanks.
+# Copy to .github/workflows/k8s.yml in YOUR project and fill the four ____ blanks.
 # It does what the M4 marker does first: a throwaway kind cluster on GitHub's machine,
 # the Secret created with a random value, a server-side dry run, apply, wait for the
 # rollout, and /healthz through your Service. The last step runs the marker itself.
@@ -26,10 +26,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
-      DEPLOYMENT: notes        # 1. metadata.name of your Deployment
-      SERVICE: 80           # 2. metadata.name of your Service
-      SERVICE_PORT: "API_KEY"    # 3. the Service's own port (port:, not targetPort:)
-      SECRET_KEY: ____        # 4. the key your Deployment reads from app-secret
+      DEPLOYMENT: notes
+      SERVICE: notes
+      SERVICE_PORT: "80"
+      SECRET_KEY: API_KEY
     steps:
       - uses: actions/checkout@v7
         with:
