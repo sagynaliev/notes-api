@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: notes                    # 1. this app's name in Argo CD
+  namespace: argocd              # 2. the namespace where Argo CD looks for Applications
+spec:
+  project: default               # Argo CD's built-in project
+  source:
+    repoURL: https://github.com/sagynaliev/notes-api   # 3. my public repository
+    targetRevision: main         # 4. the branch Argo CD follows
+    path: k8s                    # 5. the folder with my M4 manifests
+  destination:
+    server: https://kubernetes.default.svc   # this cluster
+    namespace: default           # 6. where my app runs
+  syncPolicy:
+    automated:                   # sync automatically, nobody presses "Sync"
+      prune: true                # 7. delete from the cluster what is deleted from Git
+      selfHeal: true             # 8. undo changes made by hand in the cluster
