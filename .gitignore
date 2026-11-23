@@ -3,3 +3,30 @@ __pycache__/
 .pytest_cache/
 *.pyc
 .DS_Store
+
+# Terraform: never commit state, provider caches, private inputs or saved plans.
+# Commit .terraform.lock.hcl so provider versions and checksums stay reproducible.
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+*.tfvars.json
+*.tfplan
+crash.log
+crash.*.log
+.terraform.tfstate.lock.info
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local secrets and temporary files.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.retry
+*.tmp
+*.swp
+*~
